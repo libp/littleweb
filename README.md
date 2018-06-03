@@ -1,30 +1,26 @@
-# littleweb
+## 值得读读-web端
 
-> A Vue.js project
+### 介绍
+* 基于vue2.0+elementUI+axios
 
-## Build Setup
+### 已实现页面
+* 首页获取推荐文章
+* 随机页面获取随机文章
+* 关于页面
 
-``` bash
-# install dependencies
-npm install
+### 安装使用
+* 先启动zz工程提供API接口
+* npm run dev 即可
 
-# serve with hot reload at localhost:8080
-npm run dev
+### 相关工程介绍
+* SpiderScrapyArticle，基于scrapy的最简爬虫工程
+* zzLite，微信小程序源码
+* littleweb，基于vue的前段web应用
+* zz，基于springboot4.0+mybatis实现前后端分离工程
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Links
+[SpiderScrapyArticle](https://github.com/libp/SpiderScrapyArticle)  
+[zzLite](https://github.com/libp/zzLite)  
+[littleweb](https://github.com/libp/littleweb)  
+[zz](https://github.com/libp/zz)   
+[License MIT](https://github.com/tencent/wepy/blob/master/LICENSE)

@@ -23,7 +23,8 @@ export default {
   name: 'about',
   data () {
     return {
-      article: '<p>拒绝一目十行</p>' +
+      article: '<p>时间是最好的过滤器，告诉我们什么才是精华</p>' +
+      '<p>拒绝一目十行</p>' +
       '<p>拒绝花销的样式</p>' +
       '<p>化繁为简</p>' +
       '<p>静下心来</p>' +
