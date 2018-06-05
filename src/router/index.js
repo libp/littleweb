@@ -5,6 +5,10 @@ const Home = () => import('/page/Home/home.vue')
 const Random = () => import('/page/Home/random.vue')
 const About = () => import('/page/Home/about.vue')
 const Nav = () => import('/page/ProgrammerNav/Nav.vue')
+const Admin = () => import('/page/Admin/index.vue')
+const Adminhome = () => import('/page/Admin/home.vue')
+const ArticleList = () => import('/page/Admin/articlelist.vue')
+
 Vue.use(Router)
 
 const scrollBehavior = function (to, from, savedPosition) {
@@ -69,6 +73,14 @@ export default new Router({
     {
       path: '/nav',
       component: Nav
+    },
+    {
+      path: '/dasheng',
+      component: Admin,
+      children: [
+        {path: '/', component: Adminhome},
+        {path: '/articleList', component: ArticleList, meta: ['文章管理', '文章列表']}
+      ]
     }
   ]
 })
