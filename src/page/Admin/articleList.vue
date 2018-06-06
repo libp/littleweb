@@ -5,7 +5,7 @@
       <el-table
         :data="tableData"
         highlight-current-row
-        style="width: 100%">
+        style="width: 100%" :cell-style="cell">
         <el-table-column
           type="index"
           width="100">
@@ -23,7 +23,7 @@
         <el-table-column
           property="author"
           label="作者"
-          width="200">
+          width="300">
         </el-table-column>
         <el-table-column
           property="operate"
@@ -39,6 +39,17 @@
           </template>
         </el-table-column>
       </el-table>
+      <div class="block">
+        <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="currentPage4"
+          :page-sizes="[10, 50, 100]"
+          :page-size="10"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="total">
+        </el-pagination>
+      </div>
     </div>
   </div>
 </template>
@@ -50,17 +61,10 @@ import { Loading } from 'element-ui'
 export default {
   data () {
     return {
-      tableData: [{
-        id: '2016-05-02',
-        title: '王小虎',
-        author: '上海市普陀区金沙江路 1518 弄',
-        operate: '增删改查按钮'
-      }, {
-        id: '2016-05-02',
-        title: '王小虎',
-        author: '上海市普陀区金沙江路 1518 弄',
-        operate: '增删改查按钮'
-      }]
+      tableData: [],
+      currentPage4: 1,
+      limit: 10,
+      total: 100
     }
   },
   created () {
@@ -73,20 +77,45 @@ export default {
     initData () {
       // let loadingInstance = Loading.service({ target: '.content-area', text: '加载中' })
       let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
-      axios.get('/v1/selectArticleByPage').then((response) => {
+      axios.get('/v1/selectArticleByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
         if (response.status === 200) {
           console.log(response)
-          this.tableData = response.data
+          this.tableData = response.data.list
+          this.total = response.data.total
           loadingInstance.close()
         }
       }).catch(function (err) {
         console.error(err)
       })
+    },
+    getPages () {
+      let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
+      axios.get('/v1/selectArticleByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
+        if (response.status === 200) {
+          this.tableData = response.data.list
+          this.total = response.data.total
+          loadingInstance.close()
+        }
+      }).catch(function (err) {
+        console.error(err)
+      })
+    },
+    handleSizeChange (val) {
+      this.limit = val
+    },
+    handleCurrentChange (val) {
+      this.currentPage4 = val
+      this.getPages()
+    },
+    cell ({row, column, rowIndex, columnIndex}) {
+      return 'padding:4px 0'
     }
   }
 }
 </script>
 
-<style scoped>
-
+<style>
+  .table_container{
+    padding: 20px;
+  }
 </style>
