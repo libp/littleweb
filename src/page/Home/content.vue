@@ -35,7 +35,7 @@ export default {
   methods: {
     getArticleById () {
       let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
-      axios.get('/article/v1/articleID?id=' + this.$route.params.id).then((response) => {
+      axios.get('/v1/article/articleID?id=' + this.$route.params.id).then((response) => {
         if (response.status === 200) {
           this.title = response.data.title
           this.author = response.data.author
@@ -48,7 +48,7 @@ export default {
     },
     getRandomContent () {
       let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
-      axios.get('/article/v1/random').then((response) => {
+      axios.get('/v1/article/random').then((response) => {
         if (response.status === 200) {
           this.title = response.data.title
           this.author = response.data.author

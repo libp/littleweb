@@ -10,6 +10,7 @@ const Nav = () => import('/page/ProgrammerNav/Nav.vue')
 const Admin = () => import('/page/Admin/index.vue')
 const Adminhome = () => import('/page/Admin/home.vue')
 const ArticleList = () => import('/page/Admin/articlelist.vue')
+const RecommendList = () => import('/page/Admin/recommendList.vue')
 
 Vue.use(Router)
 
@@ -82,12 +83,13 @@ export default new Router({
       component: Admin,
       children: [
         {path: '/', component: Adminhome},
-        {path: '/articleList', component: ArticleList, meta: ['文章管理', '文章列表']}
+        {path: '/articleList', component: ArticleList, meta: ['文章管理', '文章列表']},
+        {path: '/recommendList', component: RecommendList, meta: ['文章管理', '文章列表']}
       ]
-    },
-    {
-      path: '*',
-      redirect: '/home'
     }
+    // {
+    //   path: '*',
+    //   redirect: '/home'
+    // }
   ]
 })

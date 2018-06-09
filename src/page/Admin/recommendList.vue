@@ -26,16 +26,18 @@
           width="150">
         </el-table-column>
         <el-table-column
+          property="createtime"
+          label="推荐时间"
+          :formatter="dateFormat"
+          width="150">
+        </el-table-column>
+        <el-table-column
           property="operate"
           label="操作">
           <template slot-scope="scope">
             <router-link :to="{ name: 'content', params: { id: scope.row.id }}" target="_blank">
               <el-button size="mini"><i class="el-icon-view"></i></el-button>
             </router-link>
-            <el-button
-              size="mini"
-              type="success"
-              @click="handleRecommend(scope.$index, scope.row)"><i class="el-icon-success"></i></el-button>
             <el-button
               size="mini"
               type="danger"
@@ -62,6 +64,7 @@
 import headTop from '/components/headTop'
 import axios from 'axios'
 import { Loading } from 'element-ui'
+import dayjs from 'dayjs'
 export default {
   data () {
     return {
@@ -71,7 +74,7 @@ export default {
       total: 100
     }
   },
-  created () {
+  activated () {
     this.initData()
   },
   components: {
@@ -79,8 +82,8 @@ export default {
   },
   methods: {
     initData () {
-      let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
-      axios.get('/v1/article/selectArticleByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
+      let loadingInstance = Loading.service({fullscreen: true, text: '加载中'})
+      axios.get('/v1/article/selectRecommendByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
         if (response.status === 200) {
           this.tableData = response.data.list
           this.total = response.data.total
@@ -91,8 +94,8 @@ export default {
       })
     },
     getPages () {
-      let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
-      axios.get('/v1/article/selectArticleByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
+      let loadingInstance = Loading.service({fullscreen: true, text: '加载中'})
+      axios.get('/v1/article/selectRecommendByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
         if (response.status === 200) {
           this.tableData = response.data.list
           this.total = response.data.total
@@ -124,6 +127,20 @@ export default {
       }).catch(function (err) {
         console.error(err)
       })
+    },
+    handlePre (index, row) {
+      this.$router.push({
+        path: 'nav',
+        name: '',
+        params: {
+          name: 'name',
+          dataObj: this.msg
+        }
+      })
+    },
+    dateFormat (row, column) {
+      let date = row[column.property]
+      return dayjs(date).format('YYYY-MM-DD HH:mm')
     },
     handleDelete (index, row) {
       this.$confirm('此操作将永久删除该文章, 是否继续?', '提示', {

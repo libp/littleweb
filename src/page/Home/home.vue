@@ -37,7 +37,7 @@ export default {
     getRecommendContent () {
       let loadingInstance = Loading.service({ target: '.content-area', text: '加载中' })
       // let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
-      axios.get('/article/v1/recommend').then((response) => {
+      axios.get('/v1/article/recommend').then((response) => {
         if (response.status === 200) {
           this.title = response.data.title
           this.author = response.data.author
@@ -51,7 +51,7 @@ export default {
     getRandomContent () {
       // let loadingInstance = Loading.service({ target: '.content-area', text: '加载中' })
       let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
-      axios.get('/article/v1/random').then((response) => {
+      axios.get('/v1/article/random').then((response) => {
         if (response.status === 200) {
           this.title = response.data.title
           this.author = response.data.author

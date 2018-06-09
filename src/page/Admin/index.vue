@@ -7,7 +7,7 @@
           <el-submenu index="2">
             <template slot="title"><i class="el-icon-document"></i>文章管理</template>
             <el-menu-item index="articleList">文章列表</el-menu-item>
-            <el-menu-item index="shopList">推荐内容</el-menu-item>
+            <el-menu-item index="recommendList">推荐内容</el-menu-item>
           </el-submenu>
           <el-submenu index="3">
             <template slot="title"><i class="el-icon-plus"></i>文言文管理</template>
