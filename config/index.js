@@ -11,12 +11,11 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/v1': {
-        target: 'http://localhost:8080/v1',
-
+      '/article': {
+        target: 'http://localhost:8080/article',
         changeOrigin:true,
         pathRewrite: {
-          '^/v1': '/'
+          '^/article': '/'
         }
       }
     },

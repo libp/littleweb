@@ -4,6 +4,8 @@ const Index = () => import('/page/index.vue')
 const Home = () => import('/page/Home/home.vue')
 const Random = () => import('/page/Home/random.vue')
 const About = () => import('/page/Home/about.vue')
+const Content = () => import('/page/Home/content.vue')
+
 const Nav = () => import('/page/ProgrammerNav/Nav.vue')
 const Admin = () => import('/page/Admin/index.vue')
 const Adminhome = () => import('/page/Admin/home.vue')
@@ -67,7 +69,8 @@ export default new Router({
       children: [
         {path: 'home', component: Home},
         {path: 'random', component: Random, meta: { scrollToTop: true }},
-        {path: 'about', component: About, meta: { scrollToTop: true }}
+        {path: 'about', component: About, meta: { scrollToTop: true }},
+        {path: 'content/:id', name: 'content', component: Content, meta: { scrollToTop: true }}
       ]
     },
     {
@@ -81,6 +84,10 @@ export default new Router({
         {path: '/', component: Adminhome},
         {path: '/articleList', component: ArticleList, meta: ['文章管理', '文章列表']}
       ]
+    },
+    {
+      path: '*',
+      redirect: '/home'
     }
   ]
 })

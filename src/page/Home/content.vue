@@ -22,7 +22,7 @@
 import axios from 'axios'
 import { Loading } from 'element-ui'
 export default {
-  name: 'random',
+  name: 'content',
   data () {
     return {
       article: '',
@@ -33,8 +33,20 @@ export default {
   created () {
   },
   methods: {
+    getArticleById () {
+      let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
+      axios.get('/article/v1/articleID?id=' + this.$route.params.id).then((response) => {
+        if (response.status === 200) {
+          this.title = response.data.title
+          this.author = response.data.author
+          this.article = response.data.content
+          loadingInstance.close()
+        }
+      }).catch(function (err) {
+        console.error(err)
+      })
+    },
     getRandomContent () {
-      // let loadingInstance = Loading.service({ target: '.content-area', text: '加载中' })
       let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
       axios.get('/article/v1/random').then((response) => {
         if (response.status === 200) {
@@ -49,7 +61,7 @@ export default {
     }
   },
   mounted () {
-    this.getRandomContent()
+    this.getArticleById()
   },
   beforeMount () {
   }

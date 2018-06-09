@@ -18,24 +18,32 @@
         <el-table-column
           property="title"
           label="标题"
-          width="300">
+          width="250">
         </el-table-column>
         <el-table-column
           property="author"
           label="作者"
-          width="300">
+          width="250">
         </el-table-column>
         <el-table-column
           property="operate"
           label="操作">
           <template slot-scope="scope">
+            <router-link :to="{ name: 'content', params: { id: scope.row.id }}" target="_blank">
+              <el-button size="mini"><i class="el-icon-view"></i></el-button>
+            </router-link>
             <el-button
               size="mini"
-              @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+              type="success"
+              @click="handleRecommend(scope.$index, scope.row)"><i class="el-icon-success"></i></el-button>
+            <el-button
+              size="mini"
+              type="primary"
+              @click="handleEdit(scope.$index, scope.row)"><i class="el-icon-edit"></i></el-button>
             <el-button
               size="mini"
               type="danger"
-              @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+              @click="handleDelete(scope.$index, scope.row)"><i class="el-icon-delete"></i></el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -75,11 +83,9 @@ export default {
   },
   methods: {
     initData () {
-      // let loadingInstance = Loading.service({ target: '.content-area', text: '加载中' })
       let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
-      axios.get('/v1/selectArticleByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
+      axios.get('/article/v1/selectArticleByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
         if (response.status === 200) {
-          console.log(response)
           this.tableData = response.data.list
           this.total = response.data.total
           loadingInstance.close()
@@ -90,7 +96,7 @@ export default {
     },
     getPages () {
       let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
-      axios.get('/v1/selectArticleByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
+      axios.get('/article/v1/selectArticleByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
         if (response.status === 200) {
           this.tableData = response.data.list
           this.total = response.data.total
@@ -109,6 +115,29 @@ export default {
     },
     cell ({row, column, rowIndex, columnIndex}) {
       return 'padding:4px 0'
+    },
+    handleRecommend (index, row) {
+      axios.get('/article/v1/insertRecommend?id=' + row.id).then((response) => {
+        if (response.status === 200) {
+          this.$message({
+            showClose: true,
+            type: 'success',
+            message: response.data.message
+          })
+        }
+      }).catch(function (err) {
+        console.error(err)
+      })
+    },
+    handlePre (index, row) {
+      this.$router.push({
+        path: 'nav',
+        name: '',
+        params: {
+          name: 'name',
+          dataObj: this.msg
+        }
+      })
     }
   }
 }
