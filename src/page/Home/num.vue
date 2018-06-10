@@ -22,7 +22,7 @@
 import axios from 'axios'
 import { Loading } from 'element-ui'
 export default {
-  name: 'content',
+  name: 'num',
   data () {
     return {
       article: '',
