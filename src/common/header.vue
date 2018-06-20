@@ -5,8 +5,8 @@
       <ul>
         <li>
           <!--<a class="" href="#home">值得读</a>-->
-          <router-link to="/home">值得读</router-link>
-          <router-link to="/nav">领航</router-link>
+          <router-link to="/home">值得读读</router-link>
+          <router-link to="/nav" style="padding-left: 20px">程序员导航</router-link>
         </li>
       </ul>
 
