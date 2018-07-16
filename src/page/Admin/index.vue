@@ -10,19 +10,9 @@
             <el-menu-item index="recommendList">推荐内容</el-menu-item>
           </el-submenu>
           <el-submenu index="3">
-            <template slot="title"><i class="el-icon-plus"></i>文言文管理</template>
-            <el-menu-item index="addShop">文言文列表</el-menu-item>
-            <el-menu-item index="addGoods">推荐内容</el-menu-item>
-          </el-submenu>
-          <el-submenu index="4">
             <template slot="title"><i class="el-icon-plus"></i>图片管理</template>
-            <el-menu-item index="addShop">图片列表</el-menu-item>
+            <el-menu-item index="imgaeList">图片列表</el-menu-item>
             <el-menu-item index="addGoods">推荐内容</el-menu-item>
-          </el-submenu>
-          <el-submenu index="5">
-            <template slot="title"><i class="el-icon-plus"></i>笑话管理</template>
-            <el-menu-item index="addShop">笑话列表</el-menu-item>
-            <el-menu-item index="addGoods">推荐笑话</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-col>

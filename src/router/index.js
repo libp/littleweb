@@ -12,6 +12,8 @@ const Adminhome = () => import('/page/Admin/home.vue')
 const ArticleList = () => import('/page/Admin/articlelist.vue')
 const RecommendList = () => import('/page/Admin/recommendList.vue')
 
+const ImageList = () => import('/page/Admin/imgaeList.vue')
+
 Vue.use(Router)
 
 const scrollBehavior = function (to, from, savedPosition) {
@@ -67,7 +69,8 @@ export default new Router({
       children: [
         {path: '/', component: Adminhome},
         {path: '/articleList', component: ArticleList, meta: ['文章管理', '文章列表']},
-        {path: '/recommendList', component: RecommendList, meta: ['文章管理', '文章列表']}
+        {path: '/recommendList', component: RecommendList, meta: ['文章管理', '文章列表']},
+        {path: '/imgaeList', component: ImageList, meta: ['图片管理', '图片列表']}
       ]
     }
     // {
