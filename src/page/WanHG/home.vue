@@ -1,15 +1,15 @@
 <template>
   <div class="wrap">
     <div class="TypeList">
-      <!--<ul>-->
-        <!--<li v-for="item in items">-->
+      <ul>
+        <li v-for="item in items">
           <!--<a :href="'imgnum/'+item.id" class="TypeBigPics" target="_blank">-->
-            <!--<img :src="'http://img.nichuiniu.cn/images/'+item.category+'/'+item.num+'/1.webp'" width="180" height="270">-->
-            <!--<span>{{item.title}}</span>-->
-          <!--</a>-->
-        <!--</li>-->
-      <!--</ul>-->
-      <router-view></router-view>
+          <router-link :to="{ name: 'imgnum', params: { id: item.id }}" target="_blank">
+            <img :src="'http://img.nichuiniu.cn/images/'+item.category+'/'+item.num+'/1.webp'" width="180" height="270">
+            <span>{{item.title}}</span>
+          </router-link>
+        </li>
+      </ul>
     </div>
   </div>
 </template>

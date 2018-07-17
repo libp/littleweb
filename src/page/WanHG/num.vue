@@ -1,15 +1,13 @@
 <template>
   <div class="wrap">
-    <div class="TypeList">
-      <!--<ul>-->
-        <!--<li v-for="item in items">-->
-          <!--<a :href="'imgnum/'+item.id" class="TypeBigPics" target="_blank">-->
-            <!--<img :src="'http://img.nichuiniu.cn/images/'+item.category+'/'+item.num+'/1.webp'" width="180" height="270">-->
-            <!--<span>{{item.title}}</span>-->
-          <!--</a>-->
-        <!--</li>-->
-      <!--</ul>-->
-      <router-view></router-view>
+    <div class="">
+      <ul>
+        <li v-for="n in imgcount">
+
+            <img :src="'http://img.nichuiniu.cn/images/'+category+'/'+num+'/'+n+'.webp'">
+
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -18,53 +16,56 @@
 import axios from 'axios'
 import { Loading } from 'element-ui'
 export default {
-  name: 'index',
+  name: 'imgnum',
   data () {
     return {
-      items: [],
-      currentPage4: 1,
-      limit: 10,
-      total: 100
+      category: '',
+      description: '',
+      id: '',
+      imgcount: '',
+      num: '',
+      tag: '',
+      title: ''
     }
   },
   created () {
   },
   methods: {
-    initData () {
-      let loadingInstance = Loading.service({ target: '.content-area', text: '加载中' })
-      axios.get('/v1/wanHGImg/selectImgByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
+    getImageById () {
+      let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
+      console.info(this.$route.params.id)
+      axios.get('/v1/wanHGImg/getImageById?id=' + this.$route.params.id).then((response) => {
         if (response.status === 200) {
-          console.info(response)
-          this.items = response.data.list
-          this.total = response.data.total
+          this.category = response.data.category
+          this.description = response.data.description
+          this.id = response.data.id
+          this.imgcount = response.data.imgcount
+          this.num = response.data.num
+          this.tag = response.data.tag
+          this.title = response.data.title
+          console.info(response.data)
           loadingInstance.close()
         }
       }).catch(function (err) {
         console.error(err)
       })
     },
-    getPages () {
-      let loadingInstance = Loading.service({fullscreen: true, text: '加载中'})
-      axios.get('/v1/wanHGImg/selectImgByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
+    getRandomContent () {
+      let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
+      axios.get('/v1/article/random').then((response) => {
         if (response.status === 200) {
-          this.tableData = response.data.list
-          this.total = response.data.total
+          this.title = response.data.title
+          this.author = response.data.author
+          this.article = response.data.content
           loadingInstance.close()
         }
       }).catch(function (err) {
         console.error(err)
       })
-    },
-    handleSizeChange (val) {
-      this.limit = val
-    },
-    handleCurrentChange (val) {
-      this.currentPage4 = val
-      this.getPages()
     }
   },
   mounted () {
-    this.initData()
+    this.getImageById()
   },
   beforeMount () {
   }
