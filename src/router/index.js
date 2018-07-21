@@ -15,7 +15,7 @@ const RecommendList = () => import('/page/Admin/recommendList.vue')
 const ImageList = () => import('/page/Admin/imgaeList.vue')
 const WanHgIndex = () => import('/page/Wanhg/index.vue')
 const Imghome = () => import('/page/Wanhg/home.vue')
-const ImgNum = () => import('/page/Wanhg/num.vue')
+const ImgNum = () => import('/page/Wanhg/imgnum.vue')
 
 Vue.use(Router)
 
@@ -59,8 +59,7 @@ export default new Router({
         {path: 'home', component: Home},
         {path: 'random', component: Random, meta: { scrollToTop: true }},
         {path: 'about', component: About, meta: { scrollToTop: true }},
-        {path: 'num/:id', name: 'num', component: Num, meta: { scrollToTop: true }},
-        {path: 'imgnum/:id', name: 'imgnum', component: ImgNum, meta: { scrollToTop: true }}
+        {path: 'num/:id', name: 'num', component: Num, meta: { scrollToTop: true }}
       ]
     },
     {
@@ -71,7 +70,8 @@ export default new Router({
       path: '/wanhg',
       component: WanHgIndex,
       children: [
-        {path: '/', component: Imghome}
+        {path: '/', component: Imghome},
+        {path: 'imgnum/:id', name: 'imgnum', component: ImgNum, meta: { scrollToTop: true }}
       ]
     },
     {

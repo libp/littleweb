@@ -3,9 +3,7 @@
     <div class="">
       <ul>
         <li v-for="n in imgcount">
-
             <img :src="'http://img.nichuiniu.cn/images/'+category+'/'+num+'/'+n+'.webp'">
-
         </li>
       </ul>
     </div>
