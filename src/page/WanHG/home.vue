@@ -27,7 +27,6 @@ export default {
   name: 'index',
   data () {
     return {
-      items: [],
       currentPage4: 1,
       limit: 10,
       total: 100,
@@ -42,20 +41,15 @@ export default {
     getData () {
       axios.get('/v1/wanHGImg/selectImgByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
         if (response.status === 200) {
-          console.info(response)
-          this.items = response.data.list
-          this.total = response.data.total
-          var arr = []
-          for (var i = 0; i < this.items.length; i++) {
-            var category = this.items[i].category
-            var num = this.items[i].num
-            var title = this.items[i].title
-            var src = 'http://img.nichuiniu.cn/images/' + category + '/' + num + '/1.webp'
-            var href = 'imgnum/' + this.items[i].id
+          let items = response.data.list
+          let arr = []
+          for (var i = 0; i < items.length; i++) {
+            let title = items[i].title
+            let src = 'http://img.nichuiniu.cn/images/' + items[i].category + '/' + items[i].num + '/1.webp'
+            let href = 'wanhg/imgnum/' + items[i].id
             arr.push({src: src, href: href, info: title})
           }
           this.imgsArr = this.imgsArr.concat(arr)
-          console.info(this.imgsArr)
           this.currentPage4++
         }
       }).catch(function (err) {
@@ -103,5 +97,6 @@ export default {
     bottom:0;
     width:100%;
     overflow:hidden;
+    clear:both;
   }
 </style>

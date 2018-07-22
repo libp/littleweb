@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="imgs">
     <y-header></y-header>
     <router-view></router-view>
   </div>
@@ -7,6 +7,7 @@
 
 <script>
 import YHeader from '/common/header'
+import YFooter from '/common/footer'
 export default {
   name: 'index',
   data () {
@@ -14,7 +15,8 @@ export default {
     }
   },
   components: {
-    YHeader
+    YHeader,
+    YFooter
   },
   created () {
   },
@@ -28,4 +30,5 @@ export default {
 </script>
 
 <style scoped>
+  .imgs{height: 100%}
 </style>
