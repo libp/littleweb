@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <p>{{title}}</p>
-    <vue-waterfall-easy :imgsArr="imgsArr" ref="waterfall" @scrollReachBottom="getMore">
+    <vue-waterfall-easy :imgsArr="imgsArr" ref="waterfall" @scrollReachBottom="getMore" reachBottomDistance="100">
       <div slot="waterfall-over">waterfall-over</div>
     </vue-waterfall-easy>
   </div>
@@ -55,7 +55,6 @@ export default {
         arr.push({src: src})
       }
       this.imgsArr = this.imgsArr.concat(arr)
-      console.info(this.imgsArr)
       if (this.showpicnum === this.imgcount) {
         this.$refs.waterfall.waterfallOver()
         return
@@ -84,7 +83,6 @@ export default {
     bottom:0;
     width:100%;
     overflow:hidden;
-    /*margin-bottom: 100px;*/
   }
   .content p{margin-left: 100px;}
 </style>
