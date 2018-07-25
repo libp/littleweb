@@ -4,10 +4,9 @@
     <div class="nav">
       <ul>
         <li>
-          <!--<a class="" href="#home">值得读</a>-->
           <router-link to="/home">值得读读</router-link>
           <router-link to="/nav" style="padding-left: 20px">程序员导航</router-link>
-          <router-link to="/wanhg" style="padding-left: 20px">万花阁</router-link>
+          <router-link :to="{ name: 'wanhg', params: { type: 'cn' }}" style="padding-left: 20px">万花阁</router-link>
         </li>
       </ul>
 

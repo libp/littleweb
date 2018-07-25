@@ -31,7 +31,8 @@ export default {
       limit: 10,
       total: 100,
       imgsArr: [],
-      group: 0
+      group: 0,
+      type: 'cn'
     }
   },
   components: {
@@ -39,13 +40,19 @@ export default {
   },
   methods: {
     getData () {
-      axios.get('/v1/wanHGImg/selectImgByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
+      if (this.$route.params.type != null) {
+        this.type = this.$route.params.type
+      } else {
+        console.log('default is cn')
+      }
+      axios.get('/v1/wanHGImg/selectImgByPage?pageNum=' + this.currentPage4 +
+        '&pageSize=' + this.limit + '&category=' + this.type).then((response) => {
         if (response.status === 200) {
           let items = response.data.list
           let arr = []
           for (var i = 0; i < items.length; i++) {
             let title = items[i].title
-            let src = 'http://img.nichuiniu.cn/images/' + items[i].category + '/' + items[i].num + '/1.webp'
+            let src = 'https://img.nichuiniu.cn/images/' + items[i].category + '/' + items[i].num + '/1.jpg'
             let href = 'wanhg/imgnum/' + items[i].id
             arr.push({src: src, href: href, info: title})
           }
@@ -58,7 +65,9 @@ export default {
     },
     getPages () {
       let loadingInstance = Loading.service({fullscreen: true, text: '加载中'})
-      axios.get('/v1/wanHGImg/selectImgByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
+      console.log(this.$route.params.type)
+      axios.get('/v1/wanHGImg/selectImgByPage?pageNum=' + this.currentPage4 +
+        '&pageSize=' + this.limit + '&category=' + this.type).then((response) => {
         if (response.status === 200) {
           this.items = response.data.list
           this.total = response.data.total
@@ -93,7 +102,7 @@ export default {
   }
   .content {
     position: absolute;
-    top:50px;
+    top:100px;
     bottom:0;
     width:100%;
     overflow:hidden;

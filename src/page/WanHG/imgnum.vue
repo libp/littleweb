@@ -51,7 +51,7 @@ export default {
         this.showpicnum = this.imgcount
       }
       for (i; i <= this.showpicnum; i++) {
-        let src = 'http://img.nichuiniu.cn/images/' + this.category + '/' + this.num + '/' + i + '.webp'
+        let src = 'https://img.nichuiniu.cn/images/' + this.category + '/' + this.num + '/' + i + '.jpg'
         arr.push({src: src})
       }
       this.imgsArr = this.imgsArr.concat(arr)

@@ -38,9 +38,6 @@ const scrollBehavior = function (to, from, savedPosition) {
       if (document.querySelector(to.hash)) {
         return position
       }
-
-      // if the returned position is falsy or an empty object,
-      // will retain current scroll position.
       return false
     }
   }
@@ -71,6 +68,7 @@ export default new Router({
       component: WanHgIndex,
       children: [
         {path: '/', component: Imghome},
+        {path: ':type', name: 'wanhg', component: Imghome, meta: { scrollToTop: true }},
         {path: 'imgnum/:id', name: 'imgnum', component: ImgNum, meta: { scrollToTop: true }}
       ]
     },
