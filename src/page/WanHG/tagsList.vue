@@ -53,11 +53,12 @@ export default {
           for (var i = 0; i < items.length; i++) {
             let title = items[i].title
             let src = 'https://img.nichuiniu.cn/images/' + items[i].category + '/' + items[i].num + '/1.jpg'
-            let href = 'imgnum/' + items[i].id
+            let href = '../imgnum/' + items[i].id
             arr.push({src: src, href: href, info: title})
           }
           this.imgsArr = this.imgsArr.concat(arr)
           this.currentPage4++
+          console.log(this.imgsArr)
         }
       }).catch(function (err) {
         console.error(err)
