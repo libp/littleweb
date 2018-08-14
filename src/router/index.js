@@ -11,11 +11,13 @@ const Admin = () => import('/page/Admin/index.vue')
 const Adminhome = () => import('/page/Admin/home.vue')
 const ArticleList = () => import('/page/Admin/articlelist.vue')
 const RecommendList = () => import('/page/Admin/recommendList.vue')
+const ImgaeTags = () => import('/page/Admin/imgaeTags.vue')
 
 const ImageList = () => import('/page/Admin/imgaeList.vue')
 const WanHgIndex = () => import('/page/Wanhg/index.vue')
 const Imghome = () => import('/page/Wanhg/home.vue')
 const ImgNum = () => import('/page/Wanhg/imgnum.vue')
+const TagsList = () => import('/page/Wanhg/tagsList.vue')
 
 Vue.use(Router)
 
@@ -69,7 +71,8 @@ export default new Router({
       children: [
         {path: '/', component: Imghome},
         {path: ':type', name: 'wanhg', component: Imghome, meta: { scrollToTop: true }},
-        {path: 'imgnum/:id', name: 'imgnum', component: ImgNum, meta: { scrollToTop: true }}
+        {path: 'imgnum/:id', name: 'imgnum', component: ImgNum, meta: { scrollToTop: true }},
+        {path: 'tags/:id', name: 'tags', component: TagsList, meta: { scrollToTop: true }}
       ]
     },
     {
@@ -83,7 +86,8 @@ export default new Router({
         {path: '/', component: Adminhome},
         {path: '/articleList', component: ArticleList, meta: ['文章管理', '文章列表']},
         {path: '/recommendList', component: RecommendList, meta: ['文章管理', '文章列表']},
-        {path: '/imgaeList', component: ImageList, meta: ['图片管理', '图片列表']}
+        {path: '/imgaeList', component: ImageList, meta: ['图片管理', '图片列表']},
+        {path: '/imgaeTags', component: ImgaeTags, meta: ['图片管理', '图片标签']}
       ]
     }
     // {

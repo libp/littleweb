@@ -24,7 +24,7 @@ import axios from 'axios'
 import { Loading } from 'element-ui'
 import vueWaterfallEasy from 'vue-waterfall-easy'
 export default {
-  name: 'index',
+  name: 'tagList',
   data () {
     return {
       currentPage4: 1,
@@ -32,7 +32,7 @@ export default {
       total: 100,
       imgsArr: [],
       group: 0,
-      type: 'cn'
+      tagid: 10
     }
   },
   components: {
@@ -40,13 +40,13 @@ export default {
   },
   methods: {
     getData () {
-      if (this.$route.params.type != null) {
-        this.type = this.$route.params.type
+      if (this.$route.params.id != null) {
+        this.tagid = this.$route.params.id
       } else {
         console.log('default is cn')
       }
-      axios.get('/v1/wanHGImg/selectImgByPage?pageNum=' + this.currentPage4 +
-        '&pageSize=' + this.limit + '&category=' + this.type).then((response) => {
+      axios.get('/v1/wanHGImg/getImgByTagID?pageNum=' + this.currentPage4 +
+        '&pageSize=' + this.limit + '&tagid=' + this.tagid).then((response) => {
         if (response.status === 200) {
           let items = response.data.list
           let arr = []
@@ -65,9 +65,9 @@ export default {
     },
     getPages () {
       let loadingInstance = Loading.service({fullscreen: true, text: '加载中'})
-      console.log(this.$route.params.type)
-      axios.request('https://www.nichuiniu.cn/v1/wanHGImg/selectImgByPage?pageNum=' + this.currentPage4 +
-        '&pageSize=' + this.limit + '&category=' + this.type).then((response) => {
+      console.log(this.$route.params.id)
+      axios.request('https://www.nichuiniu.cn/v1/wanHGImg/getImgByTagID?pageNum=' + this.currentPage4 +
+        '&pageSize=' + this.limit + '&tagid=' + this.tagid).then((response) => {
         if (response.status === 200) {
           this.items = response.data.list
           this.total = response.data.total

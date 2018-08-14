@@ -10,9 +10,13 @@
             <el-menu-item index="recommendList">推荐内容</el-menu-item>
           </el-submenu>
           <el-submenu index="3">
-            <template slot="title"><i class="el-icon-plus"></i>图片管理</template>
+            <template slot="title"><i class="el-icon-picture"></i>图片管理</template>
             <el-menu-item index="imgaeList">图片列表</el-menu-item>
-            <el-menu-item index="addGoods">推荐内容</el-menu-item>
+            <el-menu-item index="imgaeTags">图片标签</el-menu-item>
+          </el-submenu>
+          <el-submenu index="4">
+            <template slot="title"><i class="el-icon-setting"></i>系统管理</template>
+            <el-menu-item index="sysParams">参数设置</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-col>

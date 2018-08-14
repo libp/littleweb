@@ -2,6 +2,14 @@
   <div>
     <head-top></head-top>
     <div class="table_container">
+      <el-select v-model="category" clearable placeholder="请选择" @change="handleCategoryChange">
+        <el-option
+          v-for="item in options"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value">
+        </el-option>
+      </el-select>
       <el-table
         :data="tableData"
         highlight-current-row
@@ -76,7 +84,21 @@ export default {
       tableData: [],
       currentPage4: 1,
       limit: 10,
-      total: 100
+      total: 100,
+      options: [{
+        value: 'rihan',
+        label: '日韩'
+      }, {
+        value: 'cn',
+        label: '国内'
+      }, {
+        value: 'gangtai',
+        label: '港台'
+      }, {
+        value: 'xiuren_VIP',
+        label: '模特'
+      }],
+      category: 'cn'
     }
   },
   components: {
@@ -86,22 +108,9 @@ export default {
   created () {
   },
   methods: {
-    initData () {
-      let loadingInstance = Loading.service({ target: '.content-area', text: '加载中' })
-      axios.get('/v1/wanHGImg/selectImgByPage').then((response) => {
-        if (response.status === 200) {
-          console.info(response)
-          this.tableData = response.data.list
-          this.total = response.data.total
-          loadingInstance.close()
-        }
-      }).catch(function (err) {
-        console.error(err)
-      })
-    },
     getPages () {
       let loadingInstance = Loading.service({fullscreen: true, text: '加载中'})
-      axios.get('/v1/wanHGImg/selectImgByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
+      axios.get('/v1/wanHGImg/selectImgByPage?category=' + this.category + '&pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
         if (response.status === 200) {
           this.tableData = response.data.list
           this.total = response.data.total
@@ -117,10 +126,14 @@ export default {
     handleCurrentChange (val) {
       this.currentPage4 = val
       this.getPages()
+    },
+    handleCategoryChange () {
+      this.currentPage4 = 1
+      this.getPages()
     }
   },
   mounted () {
-    this.initData()
+    this.getPages()
   },
   beforeMount () {
   }

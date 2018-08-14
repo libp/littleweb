@@ -79,7 +79,7 @@ export default {
   }
   .content {
     position: absolute;
-    top:50px;
+    top:100px;
     bottom:0;
     width:100%;
     overflow:hidden;
