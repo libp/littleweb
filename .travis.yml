@@ -1,7 +1,7 @@
 language: node_js
 # nodejs版本
 node_js:
-    - '6'
+    - '8.9.4'
 
 # Travis-CI Caching
 cache:
