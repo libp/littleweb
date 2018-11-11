@@ -15,10 +15,10 @@ const ImgaeTags = () => import('/page/Admin/imgaeTags.vue')
 const SysParams = () => import('/page/Admin/sysParams.vue')
 
 const ImageList = () => import('/page/Admin/imgaeList.vue')
-const WanHgIndex = () => import('/page/Wanhg/index.vue')
-const Imghome = () => import('/page/Wanhg/home.vue')
-const ImgNum = () => import('/page/Wanhg/imgnum.vue')
-const TagsList = () => import('/page/Wanhg/tagsList.vue')
+const WanHgIndex = () => import('/page/WanHg/index.vue')
+const Imghome = () => import('/page/WanHg/home.vue')
+const ImgNum = () => import('/page/WanHg/imgnum.vue')
+const TagsList = () => import('/page/WanHg/tagsList.vue')
 
 Vue.use(Router)
 
