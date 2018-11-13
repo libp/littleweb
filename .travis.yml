@@ -9,6 +9,9 @@ before_install:
   -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
 addons:
   ssh_known_hosts: "$IP"
+branches:
+  only:
+  - master
 install:
 - npm install
 before_script:
@@ -16,9 +19,4 @@ script:
 - npm run build
 after_script:
 - pwd
-- scp -r dist/  root@$IP:/opt/nginx/
-branches:
-  only:
-  - master
-env:
-  global:
+- scp -o StrictHostKeyChecking=no -r dist/  root@$IP:/opt/nginx/
