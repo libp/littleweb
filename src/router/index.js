@@ -6,19 +6,19 @@ const Random = () => import('/page/Home/random.vue')
 const About = () => import('/page/Home/about.vue')
 const Num = () => import('/page/Home/num.vue')
 
-const Nav = () => import('/page/ProgrammerNav/Nav.vue')
+const Nav = () => import('/page/ProgrammerNav/nav.vue')
 const Admin = () => import('/page/Admin/index.vue')
 const Adminhome = () => import('/page/Admin/home.vue')
-const ArticleList = () => import('/page/Admin/articlelist.vue')
+const ArticleList = () => import('/page/Admin/articleList.vue')
 const RecommendList = () => import('/page/Admin/recommendList.vue')
 const ImgaeTags = () => import('/page/Admin/imgaeTags.vue')
 const SysParams = () => import('/page/Admin/sysParams.vue')
 
 const ImageList = () => import('/page/Admin/imgaeList.vue')
-const WanHgIndex = () => import('/page/Wanhg/index.vue')
-const Imghome = () => import('/page/Wanhg/home.vue')
-const ImgNum = () => import('/page/Wanhg/imgnum.vue')
-const TagsList = () => import('/page/Wanhg/tagsList.vue')
+const WanHgIndex = () => import('/page/WanHG/index.vue')
+const Imghome = () => import('/page/WanHG/home.vue')
+const ImgNum = () => import('/page/WanHG/imgnum.vue')
+const TagsList = () => import('/page/WanHG/tagsList.vue')
 
 Vue.use(Router)
 
@@ -98,3 +98,4 @@ export default new Router({
     // }
   ]
 })
+
