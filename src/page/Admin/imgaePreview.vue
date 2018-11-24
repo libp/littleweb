@@ -37,7 +37,7 @@
           @current-change="handleCurrentChange"
           :current-page="currentPage4"
           :page-sizes="[10, 50, 100]"
-          :page-size="10"
+          :page-size="50"
           layout="total, sizes, prev, pager, next, jumper"
           :total="total">
         </el-pagination>
@@ -58,7 +58,7 @@ export default {
       tableData: [],
       currentPage4: 1,
       imgsArr: [],
-      limit: 10,
+      limit: 50,
       total: 100,
       options: [{
         value: 'rihan',
