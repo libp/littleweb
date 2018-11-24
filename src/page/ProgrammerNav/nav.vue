@@ -1,8 +1,8 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div class="navMain">
-    <div v-for="(urls, key) in urlMap">
+    <div v-for="(urls, key) in urlMap" :key="urls.id">
       <h2>{{ key }}</h2>
-      <div v-for="list in urls" class="urlmessages">
+      <div v-for="list in urls" class="urlmessages" :key="list.id">
         <a v-bind:href="list.weburl" target="_blank" style="color: #3a8ee6">
           <li style="width: 400px;">{{list.webtitle}}</li>
           <!--<button v-text="btnText" @click="showToggle"></button>-->

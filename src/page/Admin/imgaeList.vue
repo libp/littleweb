@@ -130,6 +130,31 @@ export default {
     handleCategoryChange () {
       this.currentPage4 = 1
       this.getPages()
+    },
+    handleDelete (index, row) {
+      this.$confirm('此操作将永久删除该图片, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        axios.delete('/v1/wanHGImg/deleteRecommendById?id=' + row.id).then((response) => {
+          if (response.status === 200) {
+            this.$message({
+              showClose: true,
+              type: 'success',
+              message: response.data.message
+            })
+            this.tableData.splice(index, 1)
+          }
+        }).catch(function (err) {
+          console.error(err)
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消删除'
+        })
+      })
     }
   },
   mounted () {

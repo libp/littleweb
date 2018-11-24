@@ -35,7 +35,7 @@ export default {
     selectSysParamsValue () {
       axios.get('/v1/sysParams/selectSysParamsValue').then((response) => {
         this.auditSwitch = response.data
-        console.log('xxxxxxxxxxxxxx' + this.auditSwitch)
+        // console.log('xxxxxxxxxxxxxx' + this.auditSwitch)
       }).catch(function (err) {
         console.error(err)
       })

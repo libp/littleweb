@@ -15,6 +15,7 @@ const ImgaeTags = () => import('/page/Admin/imgaeTags.vue')
 const SysParams = () => import('/page/Admin/sysParams.vue')
 
 const ImageList = () => import('/page/Admin/imgaeList.vue')
+const ImagePreview = () => import('/page/Admin/imgaePreview.vue')
 const WanHgIndex = () => import('/page/WanHG/index.vue')
 const Imghome = () => import('/page/WanHG/home.vue')
 const ImgNum = () => import('/page/WanHG/imgnum.vue')
@@ -88,6 +89,7 @@ export default new Router({
         {path: '/articleList', component: ArticleList, meta: ['文章管理', '文章列表']},
         {path: '/recommendList', component: RecommendList, meta: ['文章管理', '文章列表']},
         {path: '/imgaeList', component: ImageList, meta: ['图片管理', '图片列表']},
+        {path: '/imagePreview', component: ImagePreview, meta: ['图片管理', '图片预览']},
         {path: '/imgaeTags', component: ImgaeTags, meta: ['图片管理', '图片标签']},
         {path: '/sysParams', component: SysParams, meta: ['系统管理', '参数管理']}
       ]
