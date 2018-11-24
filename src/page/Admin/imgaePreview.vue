@@ -98,7 +98,7 @@ export default {
             arr.push({src: src, href: href, info: title, id: id})
           }
           this.imgsArr = this.imgsArr.concat(arr)
-          this.currentPage4++
+          // this.currentPage4++
           // console.log(this.imgsArr)
         }
       }).catch(function (err) {
