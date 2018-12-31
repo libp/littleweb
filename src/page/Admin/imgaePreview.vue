@@ -11,6 +11,7 @@
             :value="item.value">
           </el-option>
         </el-select>
+        <el-checkbox v-model="checked3" label="最火" @change="selectImgByScores()" border></el-checkbox>
       </div>
       <div class="img_box">
         <div v-for="(item) in imgsArr" :key="item.id"  class="img_pre">
@@ -60,6 +61,7 @@ export default {
       imgsArr: [],
       limit: 50,
       total: 100,
+      url: '/v1/wanHGImg/selectImgByPage?category=',
       options: [{
         value: 'rihan',
         label: '日韩'
@@ -73,6 +75,7 @@ export default {
         value: 'xiuren_VIP',
         label: '模特'
       }],
+      checked3: false,
       category: 'cn'
     }
   },
@@ -83,8 +86,8 @@ export default {
   created () {
   },
   methods: {
-    getPages () {
-      axios.get('/v1/wanHGImg/selectImgByPage?category=' + this.category + '&pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
+    getPages (url) {
+      axios.get(url + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
         if (response.status === 200) {
           this.imgsArr = []
           let items = response.data.list
@@ -105,17 +108,25 @@ export default {
         console.error(err)
       })
     },
+    selectImgByScores () {
+      if (this.checked3) {
+        this.url = '/v1/wanHGImg/selectImgByScores?pageNum='
+      } else {
+        this.url = '/v1/wanHGImg/selectImgByPage?category=' + this.category + '&pageNum='
+      }
+      this.getPages(this.url)
+    },
     handleSizeChange (val) {
       this.limit = val
     },
     handleCurrentChange (val) {
       this.currentPage4 = val
-      this.getPages()
+      this.getPages(this.url)
     },
     handleCategoryChange () {
       this.imgsArr = []
       this.currentPage4 = 1
-      this.getPages()
+      this.getPages(this.url)
     },
     handleDelete (id) {
       axios.delete('/v1/wanHGImg/deleteRecommendById?id=' + id).then((response) => {
@@ -142,7 +153,8 @@ export default {
     }
   },
   mounted () {
-    this.getPages()
+    this.url = this.url + this.category + '&pageNum='
+    this.getPages(this.url)
   },
   beforeMount () {
   }
