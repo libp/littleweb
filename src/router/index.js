@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 const Index = () => import('/page/index.vue')
-const Home = () => import('/page/Home/home.vue')
-const Random = () => import('/page/Home/random.vue')
-const About = () => import('/page/Home/about.vue')
-const Num = () => import('/page/Home/num.vue')
+const Home = () => import('/page/home/home.vue')
+const Random = () => import('/page/home/random.vue')
+const About = () => import('/page/home/about.vue')
+const Num = () => import('/page/home/num.vue')
 
-const Nav = () => import('/page/ProgrammerNav/nav.vue')
+const Nav = () => import('/page/programmernav/nav.vue')
 const Admin = () => import('/page/admin/index.vue')
 const Adminhome = () => import('/page/admin/home.vue')
 
@@ -22,10 +22,10 @@ const RecommendGushiwen = () => import('/page/admin/gushiwen/recommend.vue')
 
 const SysParams = () => import('/page/admin/sysParams.vue')
 
-const WanHgIndex = () => import('/page/WanHG/index.vue')
-const Imghome = () => import('/page/WanHG/home.vue')
-const ImgNum = () => import('/page/WanHG/imgnum.vue')
-const TagsList = () => import('/page/WanHG/tagsList.vue')
+const WanHgIndex = () => import('/page/wanhg/index.vue')
+const Imghome = () => import('/page/wanhg/home.vue')
+const ImgNum = () => import('/page/wanhg/imgnum.vue')
+const TagsList = () => import('/page/wanhg/tagsList.vue')
 
 Vue.use(Router)
 
