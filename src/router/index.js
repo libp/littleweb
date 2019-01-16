@@ -7,15 +7,21 @@ const About = () => import('/page/Home/about.vue')
 const Num = () => import('/page/Home/num.vue')
 
 const Nav = () => import('/page/ProgrammerNav/nav.vue')
-const Admin = () => import('/page/Admin/index.vue')
-const Adminhome = () => import('/page/Admin/home.vue')
-const ArticleList = () => import('/page/Admin/articleList.vue')
-const RecommendList = () => import('/page/Admin/recommendList.vue')
-const ImgaeTags = () => import('/page/Admin/imgaeTags.vue')
-const SysParams = () => import('/page/Admin/sysParams.vue')
+const Admin = () => import('/page/admin/index.vue')
+const Adminhome = () => import('/page/admin/home.vue')
 
-const ImageList = () => import('/page/Admin/imgaeList.vue')
-const ImagePreview = () => import('/page/Admin/imgaePreview.vue')
+const ArticleList = () => import('/page/admin/zhidedudu/articleList.vue')
+const RecommendList = () => import('/page/admin/zhidedudu/recommendList.vue')
+
+const ImgaeTags = () => import('/page/admin/wanhg/imgaeTags.vue')
+const ImageList = () => import('/page/admin/wanhg/imgaeList.vue')
+const ImagePreview = () => import('/page/admin/wanhg/imgaePreview.vue')
+
+const Gushiwen = () => import('/page/admin/gushiwen/list.vue')
+const RecommendGushiwen = () => import('/page/admin/gushiwen/recommend.vue')
+
+const SysParams = () => import('/page/admin/sysParams.vue')
+
 const WanHgIndex = () => import('/page/WanHG/index.vue')
 const Imghome = () => import('/page/WanHG/home.vue')
 const ImgNum = () => import('/page/WanHG/imgnum.vue')
@@ -87,10 +93,12 @@ export default new Router({
       children: [
         {path: '/', component: Adminhome},
         {path: '/articleList', component: ArticleList, meta: ['文章管理', '文章列表']},
-        {path: '/recommendList', component: RecommendList, meta: ['文章管理', '文章列表']},
+        {path: '/recommendList', component: RecommendList, meta: ['文章管理', '已推荐']},
         {path: '/imgaeList', component: ImageList, meta: ['图片管理', '图片列表']},
         {path: '/imagePreview', component: ImagePreview, meta: ['图片管理', '图片预览']},
         {path: '/imgaeTags', component: ImgaeTags, meta: ['图片管理', '图片标签']},
+        {path: '/gushiwen', component: Gushiwen, meta: ['古诗文管理', '古诗文列表']},
+        {path: '/recommend', component: RecommendGushiwen, meta: ['古诗文管理', '已推荐']},
         {path: '/sysParams', component: SysParams, meta: ['系统管理', '参数管理']}
       ]
     }
