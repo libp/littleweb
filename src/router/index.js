@@ -27,6 +27,10 @@ const Imghome = () => import('/page/wanhg/home.vue')
 const ImgNum = () => import('/page/wanhg/imgnum.vue')
 const TagsList = () => import('/page/wanhg/tagsList.vue')
 
+const guswIndex = () => import('/page/gushiwen/index.vue')
+const guswhome = () => import('/page/gushiwen/home.vue')
+const guswNum = () => import('/page/gushiwen/num.vue')
+
 Vue.use(Router)
 
 const scrollBehavior = function (to, from, savedPosition) {
@@ -72,6 +76,14 @@ export default new Router({
     {
       path: '/nav',
       component: Nav
+    },
+    {
+      path: '/gusw',
+      component: guswIndex,
+      children: [
+        {path: '/', component: guswhome},
+        {path: 'gusw/:id', name: 'gusw', component: guswNum, meta: { scrollToTop: true }}
+      ]
     },
     {
       path: '/wanhg',
