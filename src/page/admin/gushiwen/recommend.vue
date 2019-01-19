@@ -105,6 +105,13 @@ export default {
         if (response.status === 200) {
           this.tableData = response.data.list
           this.total = response.data.total
+          for (let i of this.tableData) {
+            if (i.audiourl == null || i.audiourl === '') {
+              i.audiourl = false
+            } else {
+              i.audiourl = 'https://img.nichuiniu.cn/mp3/' + i.audiourl
+            }
+          }
           loadingInstance.close()
         }
       }).catch(function (err) {
