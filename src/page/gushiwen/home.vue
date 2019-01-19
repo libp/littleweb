@@ -4,13 +4,13 @@
       <div class="content-area" v-cloak>
         <header class="entry-header">
           <h1 id="title" class="entry-title">{{title}}</h1>
-          <p class="article_author"><span>{{author}}</span></p>
+          <p class="article_author"><span>{{author}}</span>·<span>{{dynasty}}</span></p>
         </header>
         <div class="entry-content" v-html="article">
         </div>
         <div class="mp3" v-show="ishow">
           <audio style=" cursor:pointer; float:left; margin-left:20px; width:450px;"
-          :src="audiourl"
+          :src="audiourl" :id="id"
           controls="controls" autoplay="" controlslist="nodownload"></audio>
         </div>
       </div>
@@ -33,8 +33,10 @@ export default {
     return {
       article: '',
       title: '',
+      dynasty: '',
       author: '',
       ishow: true,
+      id: '',
       audiourl: ''
     }
   },
@@ -45,15 +47,7 @@ export default {
       let loadingInstance = Loading.service({ target: '.content-area', text: '加载中' })
       axios.get('/v1/gushiwen/recommend').then((response) => {
         if (response.status === 200) {
-          this.title = response.data.title
-          this.author = response.data.author
-          this.article = response.data.content
-          if (response.data.audiourl == null || response.data.audiourl === '') {
-            this.ishow = false
-          } else {
-            this.ishow = true
-            this.audiourl = 'https://img.nichuiniu.cn/mp3/' + response.data.audiourl
-          }
+          this.setCont(response)
           loadingInstance.close()
         }
       }).catch(function (err) {
@@ -62,22 +56,28 @@ export default {
     },
     getRandomContent () {
       let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
+      document.getElementById(this.id).pause()
       axios.get('/v1/gushiwen/selectByRandom').then((response) => {
         if (response.status === 200) {
-          this.title = response.data.title
-          this.author = response.data.author
-          this.article = response.data.content
-          if (response.data.audiourl == null || response.data.audiourl === '') {
-            this.ishow = false
-          } else {
-            this.ishow = true
-            this.audiourl = 'https://img.nichuiniu.cn/mp3/' + response.data.audiourl
-          }
+          this.setCont(response)
           loadingInstance.close()
         }
       }).catch(function (err) {
         console.error(err)
       })
+    },
+    setCont (response) {
+      this.title = response.data.title
+      this.author = response.data.author
+      this.article = response.data.content
+      this.dynasty = response.data.dynasty
+      if (response.data.audiourl == null || response.data.audiourl === '') {
+        this.ishow = false
+      } else {
+        this.ishow = true
+        this.id = response.data.audiourl
+        this.audiourl = 'https://img.nichuiniu.cn/mp3/' + response.data.audiourl
+      }
     }
   },
   mounted () {

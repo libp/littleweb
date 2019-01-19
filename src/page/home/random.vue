@@ -11,7 +11,7 @@
       </div>
       <div class="comments">
         <div class="random_box">
-          <a href="#title" v-on:click="getRandomContent" class="random_article">随机文章</a>
+          <a href="#title" v-on:click="getRandomContent" class="random_article">猜你喜欢</a>
         </div>
       </div>
     </div>

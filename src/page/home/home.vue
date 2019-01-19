@@ -11,7 +11,7 @@
       </div>
       <div class="comments">
         <div class="random_box">
-          <router-link to="/random#title" class="random_article">随机文章</router-link>
+          <router-link to="/random#title" class="random_article">猜你喜欢</router-link>
           <!--<a href="#title" v-on:click="getRandomContent" class="random_article">随机文章</a>-->
         </div>
       </div>
