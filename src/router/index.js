@@ -82,7 +82,7 @@ export default new Router({
       component: guswIndex,
       children: [
         {path: '/', component: guswhome},
-        {path: 'gusw/:id', name: 'gusw', component: guswNum, meta: { scrollToTop: true }}
+        {path: 'guswNum/:id', name: 'guswNum', component: guswNum, meta: { scrollToTop: true }}
       ]
     },
     {

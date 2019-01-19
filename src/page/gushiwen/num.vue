@@ -4,14 +4,20 @@
       <div class="content-area" v-cloak>
         <header class="entry-header">
           <h1 id="title" class="entry-title">{{title}}</h1>
-          <p class="article_author"><span>{{author}}</span></p>
+          <p class="article_author"><span>{{author}}</span>·<span>{{dynasty}}</span></p>
         </header>
         <div class="entry-content" v-html="article">
+        </div>
+        <div class="mp3" v-show="ishow">
+          <audio style=" cursor:pointer; float:left; margin-left:20px; width:450px;"
+          :src="audiourl" :id="id"
+          controls="controls" autoplay="" controlslist="nodownload"></audio>
         </div>
       </div>
       <div class="comments">
         <div class="random_box">
-          <a href="#title" v-on:click="getRandomContent" class="random_article">随机文章</a>
+          <a href="#title" class="random_article"
+           @click="getRandomContent()">猜你喜欢</a>
         </div>
       </div>
     </div>
@@ -22,24 +28,26 @@
 import axios from 'axios'
 import { Loading } from 'element-ui'
 export default {
-  name: 'num',
+  name: 'home',
   data () {
     return {
       article: '',
       title: '',
-      author: ''
+      dynasty: '',
+      author: '',
+      ishow: true,
+      id: '',
+      audiourl: ''
     }
   },
   created () {
   },
   methods: {
-    getArticleById () {
-      let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
-      axios.get('/v1/article/articleID?id=' + this.$route.params.id).then((response) => {
+    getRecommendContent () {
+      let loadingInstance = Loading.service({ target: '.content-area', text: '加载中' })
+      axios.get('/v1/gushiwen/selectByPrimaryKey?id=' + this.$route.params.id).then((response) => {
         if (response.status === 200) {
-          this.title = response.data.title
-          this.author = response.data.author
-          this.article = response.data.content
+          this.setCont(response)
           loadingInstance.close()
         }
       }).catch(function (err) {
@@ -48,20 +56,32 @@ export default {
     },
     getRandomContent () {
       let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
-      axios.get('/v1/article/random').then((response) => {
+      document.getElementById(this.id).pause()
+      axios.get('/v1/gushiwen/selectByRandom').then((response) => {
         if (response.status === 200) {
-          this.title = response.data.title
-          this.author = response.data.author
-          this.article = response.data.content
+          this.setCont(response)
           loadingInstance.close()
         }
       }).catch(function (err) {
         console.error(err)
       })
+    },
+    setCont (response) {
+      this.title = response.data.title
+      this.author = response.data.author
+      this.article = response.data.content
+      this.dynasty = response.data.dynasty
+      if (response.data.audiourl == null || response.data.audiourl === '') {
+        this.ishow = false
+      } else {
+        this.ishow = true
+        this.id = response.data.audiourl
+        this.audiourl = 'https://img.nichuiniu.cn/mp3/' + response.data.audiourl
+      }
     }
   },
   mounted () {
-    this.getArticleById()
+    this.getRecommendContent()
   },
   beforeMount () {
   }
@@ -127,5 +147,8 @@ export default {
     color: #999999 !important;
     margin: 40px 0 50px 0;
     text-align: center;
+  }
+  .mp3{
+    margin: 1rem 0 0 1rem;
   }
 </style>

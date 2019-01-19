@@ -44,7 +44,7 @@
           property="operate"
           label="操作">
           <template slot-scope="scope">
-            <router-link :to="{ name: 'num', params: { id: scope.row.id }}" target="_blank">
+            <router-link :to="{ name: 'guswNum', params: { id: scope.row.id }}" target="_blank">
               <el-button size="mini"><i class="el-icon-view"></i></el-button>
             </router-link>
             <el-button
