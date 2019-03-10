@@ -100,6 +100,7 @@ export default {
   },
   methods: {
     getPages () {
+      this.tableData = []
       let loadingInstance = Loading.service({fullscreen: true, text: '加载中'})
       axios.get('/v1/gushiwen/selectRecommendByPage?pageNum=' + this.currentPage4 + '&pageSize=' + this.limit).then((response) => {
         if (response.status === 200) {
