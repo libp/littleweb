@@ -1,4 +1,6 @@
-# 值得读读-web端 [![Build Status](https://www.travis-ci.org/libp/littleweb.svg?branch=master)](https://www.travis-ci.org/libp/littleweb)
+# 值得读读-web端 
+[![Build Status](https://www.travis-ci.org/libp/littleweb.svg?branch=master)](https://www.travis-ci.org/libp/littleweb)
+[![HitCount](http://hits.dwyl.io/libp/littleweb.svg)](http://hits.dwyl.io/libp/littleweb)
 
 ## 介绍
 * 基于vue2.0+elementUI+axios
