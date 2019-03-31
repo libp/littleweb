@@ -39,6 +39,30 @@
                 {
                 "name": "YouTube",
                 "url": "https://www.youtube.com/feed/trending"
+                },
+                {
+                "name": "腾讯视频",
+                "url": "https://v.qq.com/"
+                },
+                {
+                "name": "爱奇艺",
+                "url": "https://www.iqiyi.com/"
+                },
+                {
+                "name": "优酷",
+                "url": "https://www.youku.com/"
+                },
+                {
+                "name": "bilibili",
+                "url": "https://www.bilibili.com/"
+                },
+                {
+                "name": "斗鱼",
+                "url": "https://www.douyu.com/"
+                },
+                {
+                "name": "虎牙",
+                "url": "http://www.huya.com/"
                 }
             ]
         },
@@ -64,8 +88,130 @@
             ]
         },
         {
-            "title": "编程助手",
+            "title": "镜像库",
             "lists": [
+                {
+                "name": "清华大学开源软件镜像站",
+                "url": "https://mirrors.tuna.tsinghua.edu.cn/"
+                },
+                {
+                "name": "淘宝 npm 镜像",
+                "url": "http://npm.taobao.org/"
+                },
+                {
+                "name": "阿里巴巴开源镜像站",
+                "url": "https://opsx.alibaba.com/mirror?lang=zh-CN"
+                }
+            ]
+        },
+        {
+            "title": "趋势",
+            "lists": [
+                {
+                "name": "搜狗热搜",
+                "url": "http://top.sogou.com/"
+                },
+                {
+                "name": "百度风云榜",
+                "url": "http://top.baidu.com/"
+                },
+                {
+                "name": "360趋势",
+                "url": "https://trends.so.com/"
+                },
+                {
+                "name": "阿里指数",
+                "url": "https://shu.taobao.com/"
+                },
+                {
+                "name": "谷歌趋势",
+                "url": "https://trends.google.com/trends/?geo=CN"
+                },
+                {
+                "name": "微博热搜",
+                "url": "https://s.weibo.com/top/summary"
+                },
+                {
+                "name": "艾瑞指数",
+                "url": "https://index.iresearch.com.cn/pc/"
+                },
+                {
+                "name": "鲸准",
+                "url": "https://rong.36kr.com/"
+                },
+                {
+                "name": "站长之家",
+                "url": "http://top.chinaz.com/index.html"
+                }
+            ]
+        },
+        {
+            "title": "导航",
+            "lists": [
+                {
+                "name": "web前端导航",
+                "url": "http://www.alloyteam.com/nav/"
+                },
+                {
+                "name": "牛大拿设计师导航",
+                "url": "http://www.niudana.com/"
+                }
+            ]
+        },
+        {
+            "title": "内容平台",
+            "lists": [
+                {
+                "name": "微信公众平台",
+                "url": "http://www.niudana.com/"
+                },
+                {
+                "name": "头条号",
+                "url": "https://mp.toutiao.com/"
+                },
+                {
+                "name": "腾讯内容开放平台",
+                "url": "https://om.qq.com/"
+                },
+                {
+                "name": "大鱼号",
+                "url": "https://mp.dayu.com/"
+                }
+            ]
+        },
+        {
+            "title": "人工智能",
+            "lists": [
+                {
+                "name": "OpenAI",
+                "url": "https://openai.com/"
+                },
+                {
+                "name": "tensorflow",
+                "url": "https://tensorflow.google.cn/"
+                },
+                {
+                "name": "中国象棋alpha zero程序",
+                "url": "https://github.com/bupticybee/icyChessZero",
+                "title": "能开发类似的程序意味着学有所成"
+                }
+            ]
+        },
+        {
+            "title": "教程",
+            "lists": [
+                {
+                "name": "JavaScript 秘密花园",
+                "url": "http://bonsaiden.github.io/JavaScript-Garden/zh/#intro"
+                },
+                {
+                "name": "ECMAScript 6 入门",
+                "url": "http://es6.ruanyifeng.com/"
+                },
+                {
+                "name": "Google Shell 风格指南",
+                "url": "https://zh-google-styleguide.readthedocs.io/en/latest/google-shell-styleguide/contents/"
+                },
                 {
                 "name": "Mock.js",
                 "url": "http://mockjs.com/"
@@ -80,36 +226,7 @@
                 },
                 {
                 "name": "vue",
-                "url": "https://cn.vuejs.org/v2/guide/"
-                },
-                {
-                "name": "JavaScript 秘密花园",
-                "url": "http://bonsaiden.github.io/JavaScript-Garden/zh/#intro"
-                },
-                {
-                "name": "ECMAScript 6 入门",
-                "url": "http://es6.ruanyifeng.com/"
-                },
-                {
-                "name": "Google Shell 风格指南",
-                "url": "https://zh-google-styleguide.readthedocs.io/en/latest/google-shell-styleguide/contents/"
-                }
-            ]
-        },
-        {
-            "title": "镜像库",
-            "lists": [
-                {
-                "name": "清华大学开源软件镜像站",
-                "url": "https://mirrors.tuna.tsinghua.edu.cn/"
-                },
-                {
-                "name": "淘宝 npm 镜像",
-                "url": "http://npm.taobao.org/"
-                },
-                {
-                "name": "阿里巴巴开源镜像站",
-                "url": "https://opsx.alibaba.com/mirror?lang=zh-CN"
+                "url": "https://cn.vuejs.org"
                 }
             ]
         }
