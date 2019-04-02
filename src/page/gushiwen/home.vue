@@ -56,7 +56,9 @@ export default {
     },
     getRandomContent () {
       let loadingInstance = Loading.service({ fullscreen: true, text: '加载中' })
-      document.getElementById(this.id).pause()
+      if( document.getElementById(this.id) ){
+        document.getElementById(this.id).pause()
+      }
       axios.get('/v1/gushiwen/selectByRandom').then((response) => {
         if (response.status === 200) {
           this.setCont(response)
