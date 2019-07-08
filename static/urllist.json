@@ -96,6 +96,10 @@
                 {
                 "name": "数据库ER图",
                 "url": "https://dbdiagram.io/"
+                },
+                {
+                "name": "数学制图",
+                "url": "https://www.desmos.com/calculator/"
                 }
             ]
         },
