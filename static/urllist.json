@@ -82,6 +82,10 @@
                 "url": "https://www.processon.com/"
                 },
                 {
+                "name": "印象笔记",
+                "url": "https://www.yinxiang.com/"
+                },
+                {
                 "name": "计时器",
                 "url": "https://e.ggtimer.com/"
                 },
@@ -208,7 +212,7 @@
             "lists": [
                 {
                 "name": "微信公众平台",
-                "url": "http://www.niudana.com/"
+                "url": "https://mp.weixin.qq.com/"
                 },
                 {
                 "name": "头条号",
