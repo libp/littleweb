@@ -38,6 +38,14 @@
                 {
                 "name": "Twitter",
                 "url": "https://twitter.com/"
+                },
+                {
+                "name": "头条",
+                "url": "https://www.toutiao.com/"
+                },
+                {
+                "name": "知乎",
+                "url": "https://www.zhihu.com/"
                 }
             ]
         },
@@ -71,6 +79,14 @@
                 {
                 "name": "虎牙",
                 "url": "http://www.huya.com/"
+                },
+                {
+                "name": "西瓜",
+                "url": "https://www.ixigua.com/"
+                },
+                {
+                "name": "CCTV",
+                "url": "http://tv.cctv.com/live/"
                 }
             ]
         },
