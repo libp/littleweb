@@ -136,6 +136,10 @@
         {
           "name": "谷歌地球",
           "url": "https://www.google.com/earth/"
+        },
+        {
+          "name": "QQ邮箱",
+          "url": "https://mail.qq.com/"
         }
       ]
     },
