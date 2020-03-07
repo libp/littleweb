@@ -230,6 +230,10 @@
       "title": "导航",
       "lists": [
         {
+          "name": "牛导航",
+          "url": "http://www.ziliao6.com/"
+        },
+        {
           "name": "web前端导航",
           "url": "http://www.alloyteam.com/nav/"
         },
