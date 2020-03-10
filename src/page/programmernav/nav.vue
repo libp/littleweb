@@ -14,7 +14,8 @@
             </div>
           </div>
         </el-main>
-        <el-footer>Copyright ©2018~2019</el-footer>
+        <el-footer>Copyright 2018 - 2020 LuoBP. All Rights Reserved
+</el-footer>
     </el-container>
   </div>
 </template>
