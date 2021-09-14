@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-08-24 08:22:05
+ * @LastEditTime: 2021-09-14 20:02:11
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \littleweb-1\config\index.js
+ */
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
@@ -58,7 +66,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '/read/',
 
     /**
      * Source Maps

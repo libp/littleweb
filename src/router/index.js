@@ -59,6 +59,7 @@ const scrollBehavior = function (to, from, savedPosition) {
 
 export default new Router({
   mode: 'history',
+  base: 'read',
   scrollBehavior,
   routes: [
     {
