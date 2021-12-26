@@ -76,7 +76,7 @@ export default {
       } else {
         this.ishow = true
         this.id = response.data.audiourl
-        this.audiourl = 'https://img.nichuiniu.cn/mp3/' + response.data.audiourl
+        this.audiourl = 'https://www.nichuiniu.cn/mp3/' + response.data.audiourl
       }
     }
   },

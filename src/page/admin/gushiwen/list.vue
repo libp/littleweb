@@ -113,7 +113,7 @@ export default {
             if (i.audiourl == null || i.audiourl === '') {
               i.audiourl = false
             } else {
-              i.audiourl = 'https://img.nichuiniu.cn/mp3/' + i.audiourl
+              i.audiourl = 'https://www.nichuiniu.cn/mp3/' + i.audiourl
             }
           }
           loadingInstance.close()
