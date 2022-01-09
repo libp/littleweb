@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div id="gk-copyrights">
-      <p class="copyright">皖ICP备15005894号-2 - <span><router-link to="/about#title">关于</router-link></span></p>
+      <p class="copyright">沪ICP备2021029194号-1 - <span><router-link to="/about#title">关于</router-link></span></p>
     </div>
   </div>
 </template>
